@@ -1,0 +1,12 @@
+<div class="row">
+    <div *ngFor="let student of newStudents; let item = index" class="card col-md-4">
+      {{item}}
+      <img class="card-img-top" [src]="student.image" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{student.name}}</h5>
+        <p class="card-text">{{student.details}}</p>
+        <a *ngIf="student.position <= 10" class="btn btn-danger">Your position is too low</a>
+        <a *ngIf="student.position > 10" (click)="changePosition(item,student.position)" class="btn btn-primary">{{student.position}}</a>
+      </div>
+    </div>
+  </div>
